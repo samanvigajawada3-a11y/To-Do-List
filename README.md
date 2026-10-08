@@ -48,7 +48,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:5173`. The API defaults to `http://localhost:8080/api`; set `VITE_API_URL` in a `frontend/.env.local` file to override it.
+Open `http://localhost:5173`. For local development, set `VITE_API_URL` in a `frontend/.env.local` file to point to your local backend.
 
 ## REST API
 
@@ -74,6 +74,6 @@ Keep credentials in Render's environment settings; do not commit them to this re
 
 ### Frontend on Vercel
 
-Import this repository into Vercel and set the project Root Directory to `frontend`. Vercel will use the existing `npm run build` script and `dist` output. Set `VITE_API_URL` to the Render service URL followed by `/api`, for example `https://your-api.onrender.com/api`.
+Import this repository into Vercel and set the project Root Directory to `frontend`. Vercel will use the existing `npm run build` script and `dist` output. The frontend defaults to `https://to-do-list-lb6s.onrender.com/api`; you can also set `VITE_API_URL` to this value in Vercel's project environment variables.
 
 The frontend includes `vercel.json` to route client-side page requests to the React app. After deploying, copy the Vercel site origin into Render's `CORS_ALLOWED_ORIGINS` setting and redeploy the backend.
