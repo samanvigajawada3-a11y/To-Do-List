@@ -35,16 +35,9 @@ Keep that terminal open. In a second terminal, from `backend/` run:
 
 The first run downloads Maven and the backend dependencies. In PowerShell, use `.\mvnw.cmd spring-boot:run`.
 
-By default the API connects to the local MongoDB server at `mongodb://localhost:27017/To-Do-List` and runs on `http://localhost:8080`. Tasks are stored in the `Tasks` collection. In MongoDB Compass, connect to `mongodb://localhost:27017` to view the database and collection after the app saves its first task. Set `MONGODB_URI` to override the local database URI, or `PORT` to change the port.
+The API reads its MongoDB connection string from the `MONGODB_URI` environment variable and runs on `http://localhost:8080` by default. Tasks are stored in the `Tasks` collection. Supply `MONGODB_URI` in the backend environment for local runs, or as a Render environment variable after deployment.
 
-To override the local MongoDB connection, set the environment variable before starting the backend:
-
-```powershell
-$env:MONGODB_URI="mongodb://<username>:<password>@<cluster-host>:27017/<database>?ssl=true&replicaSet=<replicaSet>&authSource=admin&appName=<app-name>"
-./mvnw.cmd spring-boot:run
-```
-
-The app reads `MONGODB_URI` in `backend/src/main/resources/application.properties`.
+The app requires `MONGODB_URI` and reads it in `backend/src/main/resources/application.properties`. Keep the connection string in an environment variable or your hosting provider's secret settings, not in source files.
 
 ## Start the frontend
 
