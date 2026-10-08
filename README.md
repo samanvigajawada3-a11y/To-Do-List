@@ -65,7 +65,7 @@ Task payloads use `title`, `description`, `status` (`PENDING` or `COMPLETED`), a
 
 ### Backend on Render
 
-This repository includes a `render.yaml` Blueprint and `backend/Dockerfile`. In Render, create a new Blueprint from this GitHub repository. Set these environment variables for the backend service:
+This repository includes a `render.yaml` Blueprint and `backend/Dockerfile`. In Render, create a new Blueprint from this GitHub repository. If configuring the Docker service manually, leave Root Directory blank, set Dockerfile Path to `backend/Dockerfile`, and set Docker Context to `.` (the repository root). Set these environment variables for the backend service:
 
 - `MONGODB_URI`: your MongoDB Atlas URI, with the `To-Do-List` database in its path.
 - `CORS_ALLOWED_ORIGINS`: the full Vercel site origin, for example `https://your-project.vercel.app`.

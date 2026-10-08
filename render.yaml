@@ -3,7 +3,7 @@ services:
     name: todo-list-api
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerContext: .
     healthCheckPath: /api/tasks
     envVars:
       - key: MONGODB_URI
